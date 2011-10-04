@@ -711,9 +711,9 @@ void main (int argc, char *argv[])
 			Com_sprintf (typeName, sizeof(typeName), argv[i+1]);
 			printf("Data type to extract: %s\n", typeName);
 			Com_sprintf (buf, sizeof(buf), "g_%s_list.h", typeName);
-			func_listfile = _strdup(buf);
+			func_listfile = strdup(buf);
 			Com_sprintf (buf, sizeof(buf), "g_%s_decs.h", typeName);
-			func_decsfile = _strdup(buf);
+			func_decsfile = strdup(buf);
 			typeExtract = true;
 		}
 		else if ( !Q_stricmp(argv[i], "-o") && (i < argc-1) && (argv[i+1][0] != '-') )
@@ -795,9 +795,9 @@ int main (int argc, char *argv[])
 			Com_sprintf (typeName, sizeof(typeName), argv[i+1]);
 			printf("Data type to extract: %s\n", typeName);
 			Com_sprintf (buf, sizeof(buf), "g_%s_list.h", typeName);
-			func_listfile = _strdup(buf);
+			func_listfile = strdup(buf);
 			Com_sprintf (buf, sizeof(buf), "g_%s_decs.h", typeName);
-			func_decsfile = _strdup(buf);
+			func_decsfile = strdup(buf);
 			typeExtract = true;
 		}
 		else if ( !Q_stricmp(argv[i], "-o") && (i < argc-1) && (argv[i+1][0] != '-') )
