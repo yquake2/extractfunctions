@@ -512,6 +512,8 @@ void GetTypeNamesFromFile (char *filename, char *typeName)
 	int			isExtern = 0;
 	tokenList_t	*listHead;
 
+	printf("BANANE!\n");
+
 	listHead = NULL;
 	source = LoadSourceFile( filename );
 	if ( !source ) {
@@ -824,7 +826,10 @@ int main (int argc, char *argv[])
 	for ( i = argbase; i < firstParm; i++ )
 	{
 		printf( "%d: %s\n", i, argv[i] );
-		GetFunctionNamesFromFile (argv[i]);
+		if (typeExtract)
+			GetTypeNamesFromFile (argv[i], typeName);
+		else
+			GetFunctionNamesFromFile (argv[i]); 
 	}
 	if (typeExtract)
 		DumpReplaceFunctions (typeName);
