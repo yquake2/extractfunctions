@@ -164,7 +164,7 @@ void DumpReplaceFunctions (char *typeName)
 	char path[_MAX_PATH];
 	FILE    *f;
 	int len, newlen;
-	unsigned char *buf, *newbuf;
+	unsigned char *buf, *newbuf = NULL;
 	int updated;
 
 	updated = 0;
@@ -307,7 +307,8 @@ void DumpReplaceFunctions (char *typeName)
 	}
 
 	free( buf );
-	free( newbuf );
+	if (newbuf)
+		free( newbuf );
 
 #ifdef _WIN32
 	if ( updated ) {
