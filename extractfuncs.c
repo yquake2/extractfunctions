@@ -196,7 +196,7 @@ void DumpReplaceFunctions (char *typeName)
 	fclose( f );
 
 	strcpy( path, func_listfile );
-	if ( f = fopen( path, "rb" ) )
+	if ((f = fopen( path, "rb" )) != NULL)
 	{
 		fseek( f, 0, SEEK_END );
 		newlen = ftell( f );
@@ -264,7 +264,7 @@ void DumpReplaceFunctions (char *typeName)
 	fclose( f );
 
 	strcpy( path, func_decsfile );
-	if ( f = fopen( path, "rb" ) )
+	if ((f = fopen( path, "rb" )) != NULL)
 	{
 		fseek( f, 0, SEEK_END );
 		newlen = ftell( f );
@@ -734,7 +734,7 @@ void main (int argc, char *argv[])
 		}
 	}
 
-	if (argc < 1 || (firstParmSet && firstParm < 1))
+	if (argc < 2 || (firstParmSet && firstParm < 1))
 		Usage ();
 	// end Knightmare
 
@@ -756,6 +756,8 @@ void main (int argc, char *argv[])
 		DumpReplaceFunctions (typeName);
 	else
 		DumpReplaceFunctions (NULL);
+
+	return 0;
 }
 #else
 /*
@@ -818,7 +820,7 @@ int main (int argc, char *argv[])
 		}
 	}
 
-	if (argc < 1 || (firstParmSet && firstParm < 1))
+	if (argc < 2 || (firstParmSet && firstParm < 1))
 		Usage ();
 	// end Knightmare
 
@@ -835,6 +837,8 @@ int main (int argc, char *argv[])
 		DumpReplaceFunctions (typeName);
 	else
 		DumpReplaceFunctions (NULL);
+
+	return 0;
 }
 
 #endif
